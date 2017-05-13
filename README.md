@@ -3,6 +3,7 @@ For this assignment you will create an Almost Useless Data Structure (AUDS).  Th
 
 - The class will be called ```AUDS```
 - The constructor will take no parameters
+- The data structure will ensure all instance variables and the stored data is private.
 - The data structure will store objects in an array
 - The data structure will initially have space for 100 items
 - The data structure will automatically resize by 50% whenever a user inserts an item that puts it over the currently full value
@@ -13,9 +14,9 @@ Additionally, the data structure must implement the following methods:
 - ```AUDS& operator=(AUDS other);``` - This is the copy operator=.  It will perform the copy-and-swap we learned about in class to set one object equal to another.  It also performs a DEEP copy.
 - ```~AUDS();``` - This is the destructor.  It will give back any memory we borrowed from the OS to hold the data we stored.
 - ```int size();``` - Returns the current number of objects we are holding.
-- ```void push(Comparable x);``` - Adds the generic element to the data structure.
+- ```void push(T x);``` - Adds the generic element to the data structure.
 > Be sure to adjust the size!
-- ```Comparable pop();``` - Removes a random item from the list.  Moves the last item in the array to the spot that was occupied by the element we removed.
+- ``T pop();``` - Removes a random item from the list.  Moves the last item in the array to the spot that was occupied by the element we removed.
 > Be sure to adjust the size! 
 
 ## Grading
