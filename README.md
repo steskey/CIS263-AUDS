@@ -16,7 +16,7 @@ Additionally, the data structure must implement the following methods:
 - ```int size();``` - Returns the current number of objects we are holding.
 - ```void push(T x);``` - Adds the generic element to the data structure.
 > Be sure to adjust the size!
-- ``T pop();``` - Removes a random item from the list.  Moves the last item in the array to the spot that was occupied by the element we removed.
+- ```T pop();``` - Removes a random item from the list.  Moves the last item in the array to the spot that was occupied by the element we removed.
 > Be sure to adjust the size! 
 - You will likely need various helper methods as well.  Feel free to write whatever is needed, but protect your data!  Helper methods generally shouldn't be visible outside our class.
 
