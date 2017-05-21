@@ -10,6 +10,10 @@
 #ifndef __H_AUDS__
 #define __H_AUDS__
 
+#include <cstdlib>
+#include <ctime>
+#include <utility>
+
 template <class T>
 class AUDS{
 
@@ -22,6 +26,8 @@ class AUDS{
         AUDS() : m_data(nullptr){
 
             m_data = new T[m_capacity]; // m_capacity == 100
+
+            srand(time(nullptr)); // Seeds the random number generator
         }
 
         /**
