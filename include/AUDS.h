@@ -4,71 +4,73 @@
 template <class T>
 class AUDS{
 
-public:
+    public:
 
-	AUDS() : m_data(nullptr){
-		m_data = new T[m_capacity];
-	}
+        AUDS() : m_data(nullptr){
 
-	~AUDS(){
-		delete[] m_data;	
-	}
+            m_data = new T[m_capacity];
+        }
 
-	AUDS(AUDS const& other){
-		m_size = other.m_size;
-		m_data(new T[m_size]);
-		for(int i = 0; i < m_size; ++i){
-			m_data[i] = other.m_data[i];
-		}
-	}
-	AUDS& operator=(AUDS other){
-		AUDS copy(other);
-		std::swap(*this, copy);
-		return *this;
-	}
+        ~AUDS(){
+            delete[] m_data;	
+        }
 
-	int size(){
-		return m_size;
-	}
+        AUDS(AUDS const& other){
+            m_size = other.m_size;
+            m_data(new T[m_size]);
+            for(int i = 0; i < m_size; ++i){
+                m_data[i] = other.m_data[i];
+            }
+        }
 
-	void push(T x){
-		if(m_size >= m_capacity){
-			resize(m_capacity * 1.5);	
-		}
-		
-		m_data[m_size] = x;
-		++m_size;		
-	}
+        AUDS& operator=(AUDS other){
+            AUDS copy(other);
+            std::swap(*this, copy);
+            return *this;
+        }
 
-	T pop(){
-		// http://www.cplusplus.com/reference/cstdlib/rand/
-		int index = rand() % m_size + 1;
-	
-		T randomItem = m_data[index];	
-		m_data[index] = m_data[m_size - 1];
-		--m_size;
-		return randomItem;				
-	}
+        int size(){
+            return m_size;
+        }
 
-protected:
+        void push(T x){
+            if(m_size >= m_capacity){
+                resize(m_capacity * 1.5);	
+            }
 
-private:
+            m_data[m_size] = x;
+            ++m_size;		
+        }
 
-	T* m_data;
-	int m_size = 0;
-	int m_capacity = 100;	
+        T pop(){
+            // http://www.cplusplus.com/reference/cstdlib/rand/
+            int index = rand() % m_size + 1;
 
-	void resize(int newCapacity){
-		T* tmp = new T[newCapacity];
-		for(int i = 0; i < m_size; ++i)
-		{
-			tmp[i] = m_data[i];
-		}
+            T randomItem = m_data[index];	
+            m_data[index] = m_data[m_size - 1];
+            --m_size;
 
-		m_capacity = newCapacity;
-		delete[] m_data;	
-		m_data = tmp;
-	}	
+            return randomItem;				
+        }
+
+    protected:
+
+    private:
+
+        T* m_data;
+        int m_size = 0;
+        int m_capacity = 100;	
+
+        void resize(int newCapacity){
+            T* tmp = new T[newCapacity];
+            for(int i = 0; i < m_size; ++i){
+                tmp[i] = m_data[i];
+            }
+
+            m_capacity = newCapacity;
+            delete[] m_data;	
+            m_data = tmp;
+        }	
 };
 
 #endif // __H_AUDS__
